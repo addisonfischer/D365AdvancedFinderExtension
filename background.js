@@ -12,15 +12,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function findAndOpenAdvancedSettingsURL() {
-	// Function to find the advanced settings URL with a refined pattern
 	function findAdvancedSettingsURL() {
-		// Get all network requests
 		let requests = performance.getEntriesByType("resource");
 
-		// Refine the search criteria based on observed patterns
 		let settingsRequest = requests.find(request => request.name.includes("crm.dynamics.com"));
 
-		// Extract and log the full URL if found
 		if (settingsRequest) {
 			let url = new URL(settingsRequest.name);
 			let baseURL = `${url.protocol}//${url.hostname}`;

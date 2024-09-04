@@ -4,7 +4,6 @@ function getCrmUrl() {
 	return sessionDetails ? sessionDetails.href : null;
 }
 
-// Listen for messages from the popup script
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 	if (request.action === "getCrmUrl") {
 		const crmUrl = getCrmUrl();
